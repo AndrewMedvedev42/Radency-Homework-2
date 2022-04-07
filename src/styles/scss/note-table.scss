@@ -1,0 +1,28 @@
+.add-note-section, .note-archive-section{
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    tbody{
+        .main-row{
+            color: white;
+            background-color: rgb(127, 46, 129);
+            th{
+                padding: 20px;
+                border:none;
+            }
+            .text-slot{
+                width: 300px;
+            }
+        }
+        th {
+            border: 1px solid #ddd;
+            border-top: none;
+            padding: 8px;
+        }
+    }
+}

@@ -1,5 +1,5 @@
 .add-note-section, .note-archive-section {
-  padding-top: 10px;
+  padding-top: 25px;
   display: flex;
   justify-content: center; }
 
@@ -8,7 +8,7 @@ table {
   border-collapse: collapse; }
   table tbody .main-row {
     color: white;
-    background-color: #7f2e81; }
+    background-color: #ff6600; }
     table tbody .main-row th {
       padding: 20px;
       border: none; }

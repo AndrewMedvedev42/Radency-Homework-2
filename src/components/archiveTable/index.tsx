@@ -4,19 +4,8 @@ import { BsThreeDots } from 'react-icons/bs';
 import setArchiveStatus from "../../redux/actions/setArchiveStatus";
 import deleteNote from "../../redux/actions/deleteNote";
 
-type Props = {
-    [key: string]: any;
-};
-
-interface noteData {
-    id:string,
-    name:string,
-    createdAt:string,
-    category:string,
-    text:string,
-    completed:boolean
-    archived:boolean
-}
+import { NoteData } from "../../interfaces";
+import { Props } from "../../types";
 
 export const ArchiveTable:React.FC<Props> = ({notes, dispatch}) => {
     const ICON_SIZE = 24
@@ -34,19 +23,19 @@ export const ArchiveTable:React.FC<Props> = ({notes, dispatch}) => {
                         <th></th>
                         <th></th>
                     </tr>
-                    {notes.map((item:noteData)=>{
-                        const {id, name, createdAt, category, text, completed, archived} = item
+                    {notes.map((item:NoteData)=>{
+                        const {id, name, createdAt, category, text_content, completed, archived} = item
                         if(archived){
                             return (
                                 <tr className="row" key={id}>
                                     <th>{name}</th>
                                     <th>{createdAt}</th>
                                     <th>{category}</th>
-                                    <th>{text}</th>
+                                    <th>{text_content}</th>
                                     <th>Dates</th>
                                     <th>{!completed ? <BsThreeDots size={ICON_SIZE} /> : <FaCheck size={ICON_SIZE}/>}</th>
-                                    <th><button className="btn btn-warning" onClick={()=>{dispatch(setArchiveStatus(id))}} >Unarhcive</button></th>
-                                    <th><button className="btn btn-danger" onClick={()=>{dispatch(deleteNote(id))}} >Delete</button></th>
+                                    <th><button className="btn-warning" onClick={()=>{dispatch(setArchiveStatus(id))}} >Unarhcive</button></th>
+                                    <th><button className="btn-danger" onClick={()=>{dispatch(deleteNote(id))}} >Delete</button></th>
                                 </tr>
                             )
                         }

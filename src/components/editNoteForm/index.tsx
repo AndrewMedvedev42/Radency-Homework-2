@@ -1,23 +1,13 @@
 import {useLocation} from "react-router-dom"
 import editNote from "../../redux/actions/editNote";
-import { useSelector } from "react-redux";
+import { useIdToFindNote } from "../../hooks/useIdToFindNote";
 
-interface RootState {
-    notes:[],
-    stats:[]
-}
+import { NoteData } from "../../interfaces";
 
-
-type Props = {
-    [key: string]: any;
-};
+import { Props } from "../../types";
 
 export const EditNoteForm:React.FC<Props> = ({dispatch}) => {
-    const NOTE_ID = useLocation().pathname.split('/')[2]
-    const {notes} = useSelector((state:RootState) => state);  
-
-    const noteToEdit:any = notes.find((item:any)=>item.id === NOTE_ID)
-
+    const noteToEdit:NoteData = useIdToFindNote(useLocation().pathname.split('/')[2])!
     return (
         <section className="section">
             <form action="/" onSubmit={(event)=>{dispatch(editNote(event, noteToEdit))}}>
@@ -33,7 +23,7 @@ export const EditNoteForm:React.FC<Props> = ({dispatch}) => {
                 <textarea name="text_content" id="text-content" placeholder="Text" required>{noteToEdit.text_content}</textarea>
                 <label htmlFor="note-status">Completed</label>
                 <input id="note-status" type="checkbox" name="status" defaultChecked={noteToEdit.completed}/>
-                <input type="submit" value="Edit note"/>
+                <input type="submit" className="btn-blank" value="Edit note"/>
             </form>
         </section>
     )

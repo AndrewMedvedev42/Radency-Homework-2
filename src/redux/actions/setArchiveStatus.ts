@@ -1,4 +1,6 @@
-const setArchiveStatus = (id:string) => async (dispatch:any) => {
+import { Dispatch } from 'redux'
+
+const setArchiveStatus = (id:string) => async (dispatch:Dispatch) => {
     console.log(id);
     
     dispatch({

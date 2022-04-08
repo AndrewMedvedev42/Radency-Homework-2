@@ -1,35 +1,30 @@
-interface StatsItem {
-    category:string,
-    activeNotesCount:number,
-    archivedNotesCount:number
-}
+import { Dispatch } from 'redux'
+import { NoteData, LooseObject } from "../../interfaces";
 
-const getStats = (notes:[]) => async (dispatch:any) => {
-    const notestats:any = []
-    notes.map((item:any) => item.category)
-        .filter((value:any, index:any, self:any) => self.indexOf(value) === index)
-            .forEach((category:any)=>{
+
+const getStats = (notes_list:[]) => async (dispatch:Dispatch) => {
+    const noteStats:LooseObject = []
+
+    notes_list.map((item:NoteData) => item.category)
+        .filter((value:string, index:number, self:string[]) => self.indexOf(value) === index)
+            .forEach((category:string)=>{
                 let activeNotesCount = 0
                 let archivedNotesCount = 0
-                notes.filter((item:any)=>category == item.category)
-                    .forEach((item:any)=>{
-                        if (!item.completed) {
-                            activeNotesCount++
-                        }
-                        if (item.archived) {
-                            archivedNotesCount++
-                        }
-                    })
-                    notestats.push({
-                        category:category,
-                        activeNotesCount:activeNotesCount,
-                        archivedNotesCount:archivedNotesCount
-                    })
+                notes_list.filter((item:NoteData)=>category === item.category)
+                .forEach((item:NoteData)=>{
+                    !item.completed && activeNotesCount++
+                    item.archived && archivedNotesCount++
                 })
+                noteStats.push({
+                    category:category,
+                    activeNotesCount:activeNotesCount,
+                    archivedNotesCount:archivedNotesCount
+                })
+        })
     dispatch({
             type:"SET_NOTES_STATS",
             payload:{
-                stats: notestats,
+                stats: noteStats,
         }
     })  
                 

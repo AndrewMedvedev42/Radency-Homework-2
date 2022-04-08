@@ -1,5 +1,5 @@
 .add-note-section, .note-archive-section{
-    padding-top: 10px;
+    padding-top: 25px;
     display: flex;
     justify-content: center;
 }
@@ -10,7 +10,7 @@ table{
     tbody{
         .main-row{
             color: white;
-            background-color: rgb(127, 46, 129);
+            background-color:#ff6600;
             th{
                 padding: 20px;
                 border:none;

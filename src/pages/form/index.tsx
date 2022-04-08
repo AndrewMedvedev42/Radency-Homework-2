@@ -1,6 +1,4 @@
-type Props = {
-    [key: string]: any;
-};
+import { Props } from "../../types";
 
 export const FormPage:React.FC<Props> = ({title, form_component}) => {
     return (

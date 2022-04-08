@@ -1,8 +1,7 @@
 import {Link} from "react-router-dom";
 
-type Props = {
-    [key: string]: any;
-};
+import { StatsItem } from "../../interfaces";
+import { Props } from "../../types";
 
 export const StatsTable:React.FC<Props> = ({stats_list}) => {
     return (
@@ -15,10 +14,10 @@ export const StatsTable:React.FC<Props> = ({stats_list}) => {
                         <th>Archived</th>
                     </tr>
                     {
-                        stats_list.map((item:any)=>{
+                        stats_list.map((item:StatsItem, index:number)=>{
                             const {category, activeNotesCount, archivedNotesCount} = item
                             return (
-                                <tr className="row">
+                                <tr key={index} className="row">
                                     <th>{category}</th>
                                     <th>{activeNotesCount}</th>
                                     <th>{archivedNotesCount}</th>
@@ -29,7 +28,7 @@ export const StatsTable:React.FC<Props> = ({stats_list}) => {
                 </tbody>
             </table>
             <section className="note-archive-section">
-                <Link to='/archive' className="btn">See archive</Link>
+                <Link to='/archive' className="btn btn-primary">See archive</Link>
             </section>
         </section>
     )

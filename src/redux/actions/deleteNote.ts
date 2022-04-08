@@ -1,4 +1,5 @@
-const deleteNote = (id:string) => async (dispatch:any) => {
+import { Dispatch } from 'redux'
+const deleteNote = (id:string) => async (dispatch:Dispatch) => {
     dispatch({
             type:"DELETE_NOTE",
             payload:{

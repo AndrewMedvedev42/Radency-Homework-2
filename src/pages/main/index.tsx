@@ -4,10 +4,7 @@ import getStats from "../../redux/actions/getStats"
 import { NoteTable } from "../../components/noteTable";
 import { StatsTable } from "../../components/statsTable";
 
-interface RootState {
-    notes:[],
-    stats:[]
-}
+import { RootState } from "../../interfaces";
 
 export const MainPage:React.FC = () => {
     const dispatch = useDispatch()

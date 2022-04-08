@@ -1,13 +1,14 @@
 body{
-    margin: 0;
+    padding: 20px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .section{
-    padding: 20px 25px;
+    padding-bottom: 25px;
 }
 
-button, .btn, input[type=submit]{
+button, input[type=submit], .btn{
+    color: rgb(54, 54, 54);
     text-decoration: none;
     cursor: pointer;
     font-weight: 700;
@@ -16,27 +17,28 @@ button, .btn, input[type=submit]{
     transition: .5s;
     border: none;
     padding: 10px 25px;
+    background-color: gainsboro;
 }
 
-.btn{
-    color: rgb(36, 36, 36);
-    background-color: #e6a1e7;
-}
-
-.btn:hover{
+button:hover, input[type=submit]:hover, .btn:hover{
     opacity: .75;
 }
 
-.btn:active{
+button:active, input[type=submit]:active, .btn:active{
     opacity: .5;
 }
 
-.btn-success{
-    background-color: rgb(11, 243, 23);
+.btn-primary{
+    color: white;
+    background-color: #b34700;
+}
+
+.btn-secondary{
+    background-color: #33cccc;
 }
 
 .btn-warning{
-    background-color: rgb(243, 181, 11);
+    background-color: #ffcc00;
 }
 
 .btn-danger{

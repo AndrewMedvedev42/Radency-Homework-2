@@ -5,20 +5,8 @@ import { BsThreeDots } from 'react-icons/bs';
 import setArchiveStatus from "../../redux/actions/setArchiveStatus";
 import deleteNote from "../../redux/actions/deleteNote";
 
-type Props = {
-    [key: string]: any;
-};
-
-interface noteData {
-    id:string,
-    name:string,
-    createdAt:string,
-    category:string,
-    text_content:string,
-    completed:boolean
-    archived:boolean
-    datesMentioned:[string]
-}
+import { NoteData } from "../../interfaces";
+import { Props } from "../../types";
 
 export const NoteTable:React.FC<Props> = ({notes, dispatch}) => {
     const ICON_SIZE = 24
@@ -37,7 +25,7 @@ export const NoteTable:React.FC<Props> = ({notes, dispatch}) => {
                         <th></th>
                         <th></th>
                     </tr>
-                    {notes.map((item:noteData)=>{
+                    {notes.map((item:NoteData)=>{
                         const {id, name, createdAt, category, text_content, completed, archived, datesMentioned} = item
                         if(!archived){
                             return (
@@ -48,9 +36,9 @@ export const NoteTable:React.FC<Props> = ({notes, dispatch}) => {
                                     <th>{text_content}</th>
                                     <th>{datesMentioned.join(", ")}</th>
                                     <th>{!completed ? <BsThreeDots size={ICON_SIZE}/> : <FaCheck size={ICON_SIZE}/>}</th>
-                                    <th><Link to={`/edit/${id}`} className="btn">Edit</Link></th>
-                                    <th><button className="btn btn-warning" onClick={()=>{dispatch(setArchiveStatus(id))}} >Arhcive</button></th>
-                                    <th><button className="btn btn-danger" onClick={()=>{dispatch(deleteNote(id))}} >Delete</button></th>
+                                    <th><Link to={`/edit/${id}`} className="btn btn-secondary">Edit</Link></th>
+                                    <th><button className="btn-warning" onClick={()=>{dispatch(setArchiveStatus(id))}} >Arhcive</button></th>
+                                    <th><button className="btn-danger" onClick={()=>{dispatch(deleteNote(id))}} >Delete</button></th>
                                 </tr>
                             )
                         }
@@ -58,7 +46,7 @@ export const NoteTable:React.FC<Props> = ({notes, dispatch}) => {
                 </tbody>
             </table>
             <section className="add-note-section">
-                <Link to='/create' className="btn">Add note</Link>
+                <Link to='/create' className="btn btn-primary">Add note</Link>
             </section>
         </section>
     )

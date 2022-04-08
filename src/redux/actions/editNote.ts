@@ -1,12 +1,9 @@
-interface LooseObject {
-    [key: string]: any
-}
-const getMentionedDates = (text:string) => {
-    const dayMonthYearRegex = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/
-    return text.replace(/[^a-zA-Z0-9-/\ ]/g, "").split(" ").filter(item=>item.match(dayMonthYearRegex))
-}
+import { Dispatch } from 'redux'
+import { getMentionedDates } from "../../modules";
 
-const editNote = (event:any, note_to_edit:any) => async (dispatch:any) => {
+import { NoteData } from "../../interfaces";
+
+const editNote = (event:any, note_to_edit:NoteData) => async (dispatch:Dispatch) => {
     const {name, category, text_content, status} = event.target
         note_to_edit.name = name.value
         note_to_edit.archived = false

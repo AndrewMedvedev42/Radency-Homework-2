@@ -1,9 +1,6 @@
 import createNote from "../../redux/actions/createNote";
 
-type Props = {
-    [key: string]: any;
-};
-
+import { Props } from "../../types";
 
 export const CreateNoteForm:React.FC<Props> = ({dispatch}) => {
     return (
@@ -21,7 +18,7 @@ export const CreateNoteForm:React.FC<Props> = ({dispatch}) => {
                 <textarea name="text_content" id="text-content" placeholder="Text" required></textarea>
                 <label htmlFor="note-status">Completed</label>
                 <input id="note-status" type="checkbox" name="status"/>
-                <input className="btn-success" type="submit" value="Add note"/>
+                <input type="submit" value="Add note"/>
             </form>
         </section>
     )

@@ -1,7 +1,14 @@
-export const CreateNoteForm = () => {
+import createNote from "../../redux/actions/createNote";
+
+type Props = {
+    [key: string]: any;
+};
+
+
+export const CreateNoteForm:React.FC<Props> = ({dispatch}) => {
     return (
         <section className="section">
-            <form action="../index.html">
+            <form action="/" onSubmit={(event)=>{dispatch(createNote(event))}}>
                 <label htmlFor="name">Name</label>
                 <input type="text" name="name" id="name" placeholder="Name" required/>
                 <label htmlFor="category">Category</label>

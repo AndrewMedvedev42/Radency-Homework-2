@@ -17,7 +17,7 @@ export const MainPage:React.FC = () => {
     },[notes])     
     return (
         <section>
-            <NoteTable notes={notes}/>
+            <NoteTable notes={notes} dispatch={dispatch}/>
             <StatsTable stats_list={stats}/>
         </section>
     )

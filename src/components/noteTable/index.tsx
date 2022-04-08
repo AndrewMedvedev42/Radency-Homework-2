@@ -1,6 +1,10 @@
 import {Link} from "react-router-dom";
 import { FaCheck } from 'react-icons/fa';
 import { BsThreeDots } from 'react-icons/bs';
+
+import setArchiveStatus from "../../redux/actions/setArchiveStatus";
+import deleteNote from "../../redux/actions/deleteNote";
+
 type Props = {
     [key: string]: any;
 };
@@ -10,12 +14,14 @@ interface noteData {
     name:string,
     createdAt:string,
     category:string,
-    text:string,
+    text_content:string,
     completed:boolean
     archived:boolean
+    datesMentioned:[string]
 }
 
-export const NoteTable:React.FC<Props> = ({notes}) => {
+export const NoteTable:React.FC<Props> = ({notes, dispatch}) => {
+    const ICON_SIZE = 24
     return (
         <section className="section">
             <table>
@@ -32,19 +38,19 @@ export const NoteTable:React.FC<Props> = ({notes}) => {
                         <th></th>
                     </tr>
                     {notes.map((item:noteData)=>{
-                        const {id, name, createdAt, category, text, completed, archived} = item
+                        const {id, name, createdAt, category, text_content, completed, archived, datesMentioned} = item
                         if(!archived){
                             return (
                                 <tr className="row" key={id}>
                                     <th>{name}</th>
                                     <th>{createdAt}</th>
                                     <th>{category}</th>
-                                    <th>{text}</th>
-                                    <th>Dates</th>
-                                    <th>{!completed ? <BsThreeDots/> : <FaCheck/>}</th>
+                                    <th>{text_content}</th>
+                                    <th>{datesMentioned.join(", ")}</th>
+                                    <th>{!completed ? <BsThreeDots size={ICON_SIZE}/> : <FaCheck size={ICON_SIZE}/>}</th>
                                     <th><Link to={`/edit/${id}`} className="btn">Edit</Link></th>
-                                    <th><button className="btn btn-warning">Arhcive</button></th>
-                                    <th><button className="btn btn-danger">Delete</button></th>
+                                    <th><button className="btn btn-warning" onClick={()=>{dispatch(setArchiveStatus(id))}} >Arhcive</button></th>
+                                    <th><button className="btn btn-danger" onClick={()=>{dispatch(deleteNote(id))}} >Delete</button></th>
                                 </tr>
                             )
                         }

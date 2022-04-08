@@ -6,11 +6,15 @@ interface RootState {
     stats:[]
 }
 
-export const ArchivePage:React.FC = () => {
+type Props = {
+    [key: string]: any;
+};
+
+export const ArchivePage:React.FC<Props> = ({dispatch}) => {
     const {notes} = useSelector((state:RootState) => state);   
     return (
         <section>
-            <ArchiveTable notes={notes}/>
+            <ArchiveTable notes={notes} dispatch={dispatch}/>
         </section>
     )
 }

@@ -1,14 +1,24 @@
-import { useSelector } from "react-redux";
-import { ArchiveTable } from "../../components/archiveTable";
+import {Link} from "react-router-dom";
 
-import { RootState } from "../../interfaces";
+import { useSelector, useDispatch } from "react-redux";
+
+import { NoteTable } from "../../components/NoteTable";
+import { LinkSection } from "../../components/linkSection";
+
+import { RootState, NoteData } from "../../interfaces";
 import { Props } from "../../types";
 
-export const ArchivePage:React.FC<Props> = ({dispatch}) => {
+export const ArchivePage:React.FC<Props> = () => {
     const {notes} = useSelector((state:RootState) => state);   
+    const dispatch = useDispatch()    
     return (
-        <section>
-            <ArchiveTable notes={notes} dispatch={dispatch}/>
-        </section>
+        <article>
+            <h1 className="section_title">Archived Notes</h1>
+            <NoteTable 
+                names={["Name", "Created at", "Category", "Content", "Dates", "-", "-"]} 
+                note_list={notes.filter((item:NoteData)=>item.archived === true)} 
+                dispatch={dispatch}/>
+            <LinkSection link_to="/" text_content="Go to main page"/>
+        </article>
     )
 }

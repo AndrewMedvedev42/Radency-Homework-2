@@ -7,16 +7,31 @@ body{
     padding-bottom: 25px;
 }
 
+.section_title{
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.link-section{
+    padding-top: 25px;
+    display: flex;
+    justify-content: center;
+}
+
 button, input[type=submit], .btn{
     color: rgb(54, 54, 54);
     text-decoration: none;
     cursor: pointer;
     font-weight: 700;
     font-size: 1rem;
-    border-radius: 5px;
+    border-radius: 25px;
     transition: .5s;
     border: none;
-    padding: 10px 25px;
+    padding: 15px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: gainsboro;
 }
 
@@ -34,7 +49,7 @@ button:active, input[type=submit]:active, .btn:active{
 }
 
 .btn-secondary{
-    background-color: #33cccc;
+    background-color:none;
 }
 
 .btn-warning{

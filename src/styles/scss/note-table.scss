@@ -1,22 +1,19 @@
-.add-note-section, .note-archive-section{
-    padding-top: 25px;
-    display: flex;
-    justify-content: center;
-}
-
 table{
+    overflow: hidden;
+    border-radius: 25px;
     width: 100%;
     border-collapse: collapse;
+    border:1px solid rgb(255, 255, 255);
     tbody{
         .main-row{
             color: white;
             background-color:#ff6600;
-            th{
+            .main-slot{
                 padding: 20px;
                 border:none;
             }
             .text-slot{
-                width: 300px;
+                width: 600px;
             }
         }
         th {

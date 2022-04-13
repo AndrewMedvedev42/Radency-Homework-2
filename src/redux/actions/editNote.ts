@@ -7,7 +7,6 @@ const editNote = (event:any, note_to_edit:NoteData) => async (dispatch:Dispatch)
     const {name, category, text_content, status} = event.target
         note_to_edit.name = name.value
         note_to_edit.archived = false
-        note_to_edit.completed = status.checked
         note_to_edit.createdAt = `${new Date().toLocaleString('default', { month: 'long' })} ${new Date().getDate()}, ${new Date().getFullYear()}`
         note_to_edit.category = category.value
         note_to_edit.text_content = text_content.value

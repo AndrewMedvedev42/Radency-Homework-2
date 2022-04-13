@@ -21,8 +21,6 @@ export const EditNoteForm:React.FC<Props> = ({dispatch}) => {
                 </select>
                 <label htmlFor="text-content"></label>
                 <textarea name="text_content" id="text-content" placeholder="Text" required>{noteToEdit.text_content}</textarea>
-                <label htmlFor="note-status">Completed</label>
-                <input id="note-status" type="checkbox" name="status" defaultChecked={noteToEdit.completed}/>
                 <input type="submit" className="btn-blank" value="Edit note"/>
             </form>
         </section>

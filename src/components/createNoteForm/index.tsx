@@ -16,8 +16,6 @@ export const CreateNoteForm:React.FC<Props> = ({dispatch}) => {
                 </select>
                 <label htmlFor="text-content"></label>
                 <textarea name="text_content" id="text-content" placeholder="Text" required></textarea>
-                <label htmlFor="note-status">Completed</label>
-                <input id="note-status" type="checkbox" name="status"/>
                 <input type="submit" value="Add note"/>
             </form>
         </section>

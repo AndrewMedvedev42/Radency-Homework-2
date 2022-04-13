@@ -13,7 +13,6 @@ export interface NoteData {
     createdAt:string,
     category:string,
     text_content:string,
-    completed:boolean
     archived:boolean
     datesMentioned:string[]
 }

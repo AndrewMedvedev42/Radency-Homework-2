@@ -5,7 +5,6 @@ import { Props } from "../../types";
 
 export const StatsTable:React.FC<Props> = ({stats_list}) => {
     return (
-        <section className="section">
             <table>
                 <tbody>
                     <tr className="row main-row">
@@ -27,9 +26,5 @@ export const StatsTable:React.FC<Props> = ({stats_list}) => {
                     }
                 </tbody>
             </table>
-            <section className="note-archive-section">
-                <Link to='/archive' className="btn btn-primary">See archive</Link>
-            </section>
-        </section>
     )
 }

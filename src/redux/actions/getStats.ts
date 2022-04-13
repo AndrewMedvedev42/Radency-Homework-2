@@ -12,8 +12,7 @@ const getStats = (notes_list:[]) => async (dispatch:Dispatch) => {
                 let archivedNotesCount = 0
                 notes_list.filter((item:NoteData)=>category === item.category)
                 .forEach((item:NoteData)=>{
-                    !item.completed && activeNotesCount++
-                    item.archived && archivedNotesCount++
+                    item.archived ? archivedNotesCount++ : activeNotesCount++
                 })
                 noteStats.push({
                     category:category,

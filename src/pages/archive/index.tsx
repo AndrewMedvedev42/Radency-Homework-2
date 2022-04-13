@@ -2,7 +2,7 @@ import {Link} from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
 
-import { NoteTable } from "../../components/NoteTable";
+import { NoteTable } from "../../components/noteTable";
 import { LinkSection } from "../../components/linkSection";
 
 import { RootState, NoteData } from "../../interfaces";

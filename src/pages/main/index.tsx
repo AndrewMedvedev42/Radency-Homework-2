@@ -4,7 +4,7 @@ import getStats from "../../redux/actions/getStats"
 import { StatsTable } from "../../components/statsTable";
 
 import { LinkSection } from "../../components/linkSection";
-import { NoteTable } from "../../components/NoteTable";
+import { NoteTable } from "../../components/noteTable";
 
 import { RootState } from "../../interfaces";
 

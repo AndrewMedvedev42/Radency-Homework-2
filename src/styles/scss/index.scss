@@ -1,0 +1,72 @@
+body{
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.section{
+    padding-bottom: 25px;
+}
+
+.section_title{
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.link-section{
+    padding-top: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+button, input[type=submit], .btn{
+    color: rgb(54, 54, 54);
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 25px;
+    transition: .5s;
+    border: none;
+    padding: 15px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: gainsboro;
+}
+
+button:hover, input[type=submit]:hover, .btn:hover{
+    opacity: .75;
+}
+
+button:active, input[type=submit]:active, .btn:active{
+    opacity: .5;
+}
+
+.btn-primary{
+    color: white;
+    background-color: #b34700;
+}
+
+.btn-secondary{
+    background-color:none;
+}
+
+.btn-warning{
+    background-color: #ffcc00;
+}
+
+.btn-danger{
+    color: white;
+    background-color: crimson;
+}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}

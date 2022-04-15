@@ -1,0 +1,18 @@
+table {
+  overflow: hidden;
+  border-radius: 25px;
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid white; }
+  table tbody .main-row {
+    color: white;
+    background-color: #ff6600; }
+    table tbody .main-row .main-slot {
+      padding: 20px;
+      border: none; }
+    table tbody .main-row .text-slot {
+      width: 600px; }
+  table tbody th {
+    border: 1px solid #ddd;
+    border-top: none;
+    padding: 8px; }
